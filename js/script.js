@@ -1,4 +1,4 @@
-function main(idElement, cursor = "|", [...args]) {
+function main(idElement, [...args]) {
     // Переменные с печатаемым элементом, массивом слов, и счетчиками букв и слов
     let typeWriterText = document.querySelector(`#${idElement}`);
     let arrayWords = [...args];
@@ -9,25 +9,21 @@ function main(idElement, cursor = "|", [...args]) {
     function blinkCursor() {
         const element = document.createElement("span");
         element.classList.add("blink");
-        // Данный курсор можно поменять на другой
-        // element.textContent = "|";
-        element.textContent = `${cursor}`;
+        // Если нужно сделать курсором "\", то пиши "\\", для экранировки символа
+        element.textContent = "|"; // Данный курсор можно поменять на другой
         return element;
     }
 
+    // Функция для добавления мигающего курсора в родительский элемент
     function insertCursorToParentNode(child, func) {
         const parent = child.parentNode;
         parent.insertAdjacentElement("beforeend", func);
     }
 
+    // Как потомка передаем переменную с пишущим текстом, и добавляем функцию мигающего курсора, который вернет элемент
     insertCursorToParentNode(typeWriterText, blinkCursor());
 
-    // let blink = document.querySelector(".blink");
-
-    // blink.textContent = "|";
-    // let pn = typeWriterText.parentNode
-    // pn.insertAdjacentElement("beforeend", blinkCursor())
-
+    // Функция для написания букв
     function writeWord() {
         setTimeout(() => {
             // Если индекс слов в массиве равен или превышает длину массива со словами
@@ -54,6 +50,7 @@ function main(idElement, cursor = "|", [...args]) {
         }, 100);
     }
 
+    // Функция для удаления букв
     function deleteWord() {
         setTimeout(() => {
             // Удаляем последнюю букву из содержимого текста
@@ -81,47 +78,11 @@ function main(idElement, cursor = "|", [...args]) {
         }, 100);
     }
 
-    // function writeWord() {
-    //     setTimeout(() => {
-    //         if (wordIndex >= arrayWords.length) {
-    //             wordIndex = 0;
-    //         }
-
-    //         typeWriterText.textContent += arrayWords[wordIndex][charIndex];
-    //         charIndex++;
-    //         if (charIndex >= arrayWords[wordIndex].length) {
-    //             setTimeout(() => {
-    //                 deleteWord();
-    //             }, 3000);
-    //         } else {
-    //             writeWord();
-    //         }
-    //     }, 100);
-    // }
-
-    // function deleteWord() {
-    //     setTimeout(() => {
-    //         typeWriterText.textContent = arrayWords[wordIndex].slice(0, charIndex);
-    //         charIndex--;
-    //         if (charIndex < 0) {
-    //             setTimeout(() => {
-    //                 charIndex = 0;
-
-
-
-    //                 wordIndex++;
-    //                 writeWord();
-    //             }, 2000)
-    //             console.log("End rewrite typeWriterText");
-    //         } else {
-    //             deleteWord();
-    //         }
-    //     }, 100);
-    // }
-
+    // Вызываем функцию для написания букв в слове
     writeWord();
 }
 
-let one = main("one", "$", ["Один", "Два", "Три"]);
-let five = main("five", "@", ["Четыре", "Пять"]);
-let two = main("two", "\\", ["WOOOOOOOOW", "TEEEEEEEEEXT", "MAIN function"])
+// Создание объектов на основе функции, передаем аргументами id элемента, в котором будет идти запись букв, и массив слов или предложений
+let one = main("one", ["Один", "Два", "Три"]);
+let five = main("five", ["Четыре", "Пять"]);
+let two = main("two", ["WOOOOOOOOW", "TEEEEEEEEEXT", "MAIN function"]);
