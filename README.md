@@ -55,4 +55,4 @@ script.js       | Файл скрипта
 ***
 
 ## Скриншот проекта
-![Скриншот](https://github.com/WalkingFrozenFish/readme-template/blob/main/img/screen.jpg)
+![Скриншот]()
