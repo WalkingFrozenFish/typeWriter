@@ -55,4 +55,4 @@ script.js       | Файл скрипта
 ***
 
 ## Скриншот проекта
-![Скриншот]()
+![Скриншот](https://github.com/WalkingFrozenFish/typeWriter/blob/master/img/project-gif.gif)
