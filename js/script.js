@@ -85,7 +85,7 @@ function main(idElement, [...args]) {
 // Создание объектов на основе функции, передаем аргументами id элемента, в котором будет идти запись букв, и массив слов или предложений
 let title = main("title-type-writer", ["page", "typewriter page", "cool typewriter page"]);
 let firstText = main("main-text-type-writer", ["write", "delete", "write again"]);
-let secondText = main("second-text-type-writer", ["- Lorem ipsum dolor sit amet.", "- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, nihil fuga in debitis atque adipisci!", "- Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur sint sapiente, hic fugiat distinctio nulla corporis quaerat."]);
+let secondText = main("second-text-type-writer", ["- Lorem ipsum dolor sit amet.", "- Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam, nihil fuga in debitis atque adipisci!", "- Lorem ipsum dolor sit amet consectetur adipisicing elit."]);
 
 let one = main("one", ["one", "two", "three"]);
 let two = main("two", ["three", "one", "two"]);
